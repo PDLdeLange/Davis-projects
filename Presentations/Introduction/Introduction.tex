@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usetheme{default}
+\title{Introduction}
+\author{Peter de Lange}
+\institute{UC DAVIS}
+\date{January 27, 2011}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{About me}
+		\begin{itemize}
+		\item Graduate student from the TU Delft (Netherlands)
+		\item Doing internship at the UC Davis bicycle laboratory
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{Graduation project}
+Identifying rider controlling action in bicycling:
+		\begin{itemize}
+		\item We know a lot about the uncontrolled bicycle dynamics.
+		\item However, in every day life, bicycle are most of the time controlled by human operators.
+		\item Graduation project will be about identifying human rider control during bicycling
+		\item To be more specific, we are especially interested in bike balancing.
+	 \end{itemize}
+\end{frame}
+
+\begin{frame}{Project Description}
+		\begin{itemize}
+		\item Assisting Jason and Luke with performing measurements.
+		\item Prepare system identification procedures for validating bicycle dynamics (Luke) and estimating rider control (Jason)
+		\item Unfortunately I just arrived, so I can't tell you much about it yet.
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{Bicycle simulation}
+Instead I will be talking about Matlab bicycle game I recently created. The following contents will be treated. 
+		\begin{itemize}
+		\item Methods
+		\item User input
+		\item Demonstration
+		\item Discussion
+		\item Future work
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{Methods}
+		\begin{itemize}
+		\item Simulink model (ODE-solving)
+		\item Matlab Real-time windows target
+				\begin{itemize}
+				\item Enable real-time simulation by connecting Matlab directly to windows timer.
+				\item Compilation of simulink code to C-code for faster runs.
+				\item Analog joystick input supported
+				\item Compatible with Simulink 3D animation toolbox.
+				\end{itemize}
+		\item Simulink 3D animation toolbox
+				\begin{itemize}
+						\item Enables connecting Matlab with a 3D VRML enviroment.
+						\item VRML environments are easy to created using 3D software (e.g. 3D studio max).
+				\end{itemize}
+		\item Matlab GUI with visual indicators
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{User input}
+		\begin{itemize}
+		\item Linear benchmark bicycle equations programmed;
+		\begin{align} 
+		\mathbf{M}\ddot{\mathbf{q}} + v\mathbf{C}_1\dot{\mathbf{q} } + \left[g\mathbf{K}_0 + v^2\mathbf{K}_2\right]\mathbf{q} = \mathbf{f} \ ,
+		\end{align}
+		where $\mathbf{q} = \left[\phi , \ \delta \right]^T$ and $\mathbf{f} = \left[ T_\phi , \ T_\delta \right]^T$.
+		\item User input:
+				\begin{itemize}
+				\item Velocity; $v$ [m/s]
+				\item Steering torque; $T_{\delta}$ [Nm]
+				\end{itemize}
+		\item Lean action omitted, but would be interesting to include in the simulation.
+		\end{itemize}
+\end{frame}
+
+\begin{frame}{Demonstration}
+			Matlab bicycle simulation 
+\end{frame}
+
+\begin{frame}{Some discussion}
+			\begin{itemize}
+			\item Dynamic behavior of the bicycle changes as function of the forward velocity; $v$.
+			\item Capsize instability easy to control.
+			\item At low velocity the weave mode becomes instable and is very hard to control.
+			\item Linear equations only valid for small angles.
+			\item Adding visual cue about roll rate, makes control possible.
+			\item Changing bike parameters would require changing both the Matlab and 3D model, which is a lot of work.
+			\end{itemize}
+\end{frame}
+
+\begin{frame}{Future work}
+			\begin{itemize}
+			\item Include the nonlinear equations
+			\item Force feedback interface to include proprioceptive feedback loops.
+			\item Include leaning action.
+			\item Experiment with different viewpoints (e.g. camera attached to bicycle).
+			\item Automatic 3D model generation based on bike parameters.
+			\item Multi-player bike balancing mayhem.
+			\end{itemize}
+\end{frame}
+
+
+\end{document}

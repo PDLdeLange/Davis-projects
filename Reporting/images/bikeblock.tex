@@ -1,0 +1,96 @@
+\begin{figure}[ht]
+\centering %
+\tikzstyle{block} = [draw,rectangle,thick,minimum height=2em,minimum width=2em]
+\tikzstyle{bigblock} = [draw,rectangle,thick,minimum height=2em,minimum width=4em]
+\tikzstyle{sum} = [draw,circle,inner sep=0mm,minimum size=2mm]
+\tikzstyle{connector} = [->,thick]
+\tikzstyle{line} = [thick]
+
+\tikzstyle{branch} = [circle,inner sep=0pt,minimum size=1mm,fill=black,draw=black]
+\tikzstyle{guide} = []
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+
+\begin{tikzpicture}[scale=1, auto, >=stealth']
+
+		
+
+%\renewcommand{\vec}[1]{\ensuremath{\boldsymbol{#1}}} % bold vectors
+%\def \myneq {\skew{-2}\not =} % \neq alone skews the dash
+%
+%\def\edgedist{0.1}
+%
+%\begin{tikzpicture}[scale=1, auto, >=stealth']
+    %%\small
+    %\node [input, name=input] {};
+				%\node[sum,right of=input] (sumy){};
+		%\node[block,right of =sumy] (Ky) {$K_y$};
+				%\node[sum,right of=Ky] (sumpsi){};
+		%\node[block,right of =sumpsi] (Kpsi) {$K_\psi$};
+				%\node[sum,right of=Kpsi] (sumphi){};
+		%\node[block,right of =sumphi] (Kphi) {$K_\phi$};
+				%\node[sum,right of=Kphi] (sumphid){};
+		%\node[block,right of =sumphid] (Kphid) {$K_{\dot{\phi}}$};
+				%\node[sum,right of=Kphid] (sumdelta){};
+		%\node[block,right of =sumdelta] (Kdelta) {$K_\delta$};
+				%\node[right of = Kdelta,coordinate](c) {};
+		%\node[block,right of =c] (Gnm) {$G_{nm}$};
+				%\node[right of = Gnm,coordinate](u) {};
+		%\node[bigblock,right of =u](H) {$\mathbf{H}$};
+				%\node[branch,right of = H](y) {};
+    %\node [output, right of=y ](output) {};
+		%% Feedback nodes
+		%\node[coordinate,above of=H](Tphi){};
+			%
+		%
+		%% Draw connectors
+		%\draw [connector] (input) -- node {$y_c$} (sumy);
+				%\draw [connector] (sumy) -- node {} (Ky);
+		%\draw [connector] (Ky) -- node {} (sumpsi);
+				%\draw [connector] (sumpsi) -- node {} (Kpsi);
+		%\draw [connector] (Kpsi) -- node {} (sumphi);
+				%\draw [connector] (sumphi) -- node {} (Kphi);
+		%\draw [connector] (Kphi) -- node {} (sumphid);
+				%\draw [connector] (sumphid) -- node {} (Kphid);
+		%\draw [connector] (Kphid) -- node {} (sumdelta);
+						%\draw [connector] (sumdelta) -- node {} (Kdelta);
+		%\draw [connector] (Kdelta) -- node {} (Gnm);
+		%\draw [connector] (Gnm) -- node {$T_\delta$} (H);
+		%\draw [connector] (H) -- node {${y}$} (output);
+			%
+		%% Feedback nodes
+		%\path (H.base)+(-1.5em,-0.3em) node (Hdelta) {}; 	\node[coordinate,below of=Hdelta](fbHdelta){};
+		%\path (H.base)+(-0.5em,-0.3em) node (Hphid) {};		\node[coordinate,below of=Hphid](fbHphid) {};
+		%\path (H.base)+( 0.5em,-0.3em) node (Hphi) {};			\node[coordinate,below of=Hphi](fbHphi){};
+		%\path (H.base)+( 1.5em,-0.3em) node (Hpsi) {};			\node[coordinate,below of=Hpsi](fbHpsi){};
+																																							%\node[coordinate,below of=y](fbHy){};
+%
+%
+		%% Disturbance
+		%\draw [connector] (Tphi) -- node {${T_\phi}$} (H);
+%
+				%
+		%% Multiple loop feedback
+		%\draw [line] (Hdelta) -- 	node {} ([yshift=-0em] fbHdelta) ;
+		%\draw [line] (Hphid) -- 		node {} ([yshift=-1em] fbHphid) ;
+		%\draw [line] (Hphi) -- 			node {} ([yshift=-2em] fbHphi) ;
+		%\draw [line] (Hpsi) -- 			node {} ([yshift=-3em] fbHpsi) ;
+		%\draw [line] (y) -- 						node {} ([yshift=-4.7em] fbHy) ;
+		%
+		%\draw [connector] ([yshift=-0em] fbHdelta) [line]  -| node[left] {$\delta$} (sumdelta) 			;
+		%\draw [connector] ([yshift=-1em] fbHphid) [line]  -|  node {$\dot{\phi}$} (sumphid)	;
+		%\draw [connector] ([yshift=-2em] fbHphi) [line]  -| 	node {$\phi$} (sumphi) 								;
+		%\draw [connector] ([yshift=-3em] fbHpsi) [line]  -| 	node {$\psi$} (sumpsi) 						;
+		%\draw [connector] ([yshift=-4.7em] fbHy) [line]  -| 	node {$y$} (sumy)										;
+		%
+		%\draw (sumdelta) node[below left] {$\scriptstyle-$} ;
+		%\draw (sumphid) node[below left] {$\scriptstyle-$} ;
+		%\draw (sumphi) node[below left] {$\scriptstyle-$} ;
+		%\draw (sumpsi) node[below left] {$\scriptstyle-$} ;
+		%\draw (sumy) node[below left] {$\scriptstyle-$} ;
+
+
+    \end{tikzpicture}
+
+
+\end{figure}

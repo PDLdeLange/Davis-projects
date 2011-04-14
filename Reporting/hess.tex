@@ -1,0 +1,65 @@
+\section{Multiple loop rider model}
+In this chapter the rider model presented by Dr. Hess will be analyzed. The block diagram of the rider/bicycle model is shown in figure \ref{fig:hessblock}. The rider is modelled as an multi loop feedback controller. The gains denoted by $K$ are the feedback gains of the human controller. These gains are actually yet to be identified, but estimates are provided by Dr. Hess. Block $G_{nm}$ represents the neuromuscular dynamics and block $\mathbf{H}$ contains the bicycle dynamics. 
+\input{images/hessblock}
+The following expression in termse of the bicycle output and lateral objective displacement ($y_c$) can be derived from this block diagram and yields:
+\begin{align}
+		T_\delta 	&= G_{nm}K_\delta(K_{\dot{\phi}}(K_\phi(K_\psi(K_y(y_c-y)-\psi)-\phi)-\dot{\phi})-\delta) \nonumber
+\end{align}
+The neuromuscular dynamics are modelled as:
+\begin{align}
+		G_{nm} = \frac{30^2}{s^2 +  2(0.707)30s  + 30^2}
+\end{align}
+The bicycle dynamics can be expressed as a set of transfer functions:
+\begin{align}
+		\left[\begin{array}{c} \phi \\  \delta \\ \dot{\phi} \\ \dot{\delta} \\ \end{array} \right] = 
+				\left[\begin{array}{cc} H_{11}  & H_{12} \\ H_{21}  & H_{22} \\ H_{31}  & H_{32} \\ H_{41}  & H_{42} \\  \end{array}\right]
+				\left[\begin{array}{c} T_\phi \\ T_\delta \\ \end{array}\right]
+\end{align}
+And the additional output variables can be expressed in terms of the state variables as:
+\begin{align}
+		\psi 	&= \frac{1}{s}\frac{v\delta + c\dot{\delta}}{w}\cos\lambda \  , \\
+		y			&\approx \frac{1}{s}v\psi \  \ \textrm{, for small angles of $\psi$.} 
+\end{align}
+Now we have all the ingredients to derive the combined system transfer functions, but first we will analyze possible ways of exciting the rider/bicycle combination.
+\subsection{Possible ways to excite the system}
+From the block diagram we observe the following two inputs; target lateral displacement $y_c$ and external disturbance $T_\phi$.  This is not completely correct, since it is also potentially possible to apply an external steering torque $T_{\delta\textrm{,ext}}$.  In general, an arbitrary external force applied at position $x_r$($= x_r(q_s)$) can be projected onto the generalized coordinates according to: 
+\begin{align}
+		T_{s\textrm{,ext}}  = \frac{\partial x_r}{\partial q_s} f_r \ ,
+\end{align}  
+where the Einstein summation convention is used to indicate summation over repeated indices. This operation results into the generalized external forces $T_{s\textrm{,ext}}$, which can be easially added to the dynamic equations of the bicycle.
+		Caution is warranted when choosing the disturbance force, because certain choices me change the linearized dynamic behavior of the system.  In particular; it is important to apply the force orthogonal to the forward velocity component of the bicycle in order to prevent forward acceleration/deceleration. This matters, because changing the velocity affects the dynamics equations of the bicycle which are linearized around a certain constant velocity. The forward velocity could easially be changed, since the system is marginally stable in its velocity (e.i. forward motion is a rigid body mode).
+		To conclude this section; the system can be excited by changing the varying the lateral displacement $y_c$ and by perturbing the system using an external disturbance force $f_r$.
+\subsection{Overview of excitation schemes}
+In table \ref{table:excitationscheme} a overview of possible ways of excitating the system is given. There are 2 possible external inputs; force and lateral objective displacement, which result in 4  possible combinations of exciting the system. 
+\begin{table}
+		\centering
+		\begin{tabular}{c c l}
+				\toprule
+				Case & Excitation  & Description \\
+				\midrule
+				\multirow{2}{*}{1}
+						& $y_c= 0$ 			&  \multirow{2}{*}{No external excitation} \\
+						& $f_r = 0$ 			  & \\	\hline
+				\multirow{2}{*}{2}
+						& $y_c = 0$ 		  & \multirow{2}{*}{Excitation through force disturbance} \\
+						& $f_r\neq0$ 		  & \\	\hline
+				\multirow{2}{*}{3}
+						& $y_c \neq 0$  & \multirow{2}{*}{Excitation through lateral displacement disturbance} \\
+						& $f_r = 0$ 			  & \\	\hline
+					\multirow{2}{*}{4}
+						& $y_c \neq 0$  & \multirow{2}{*}{Combined excitation} \\
+						& $f_r   \neq 0$  & \\
+				\bottomrule
+		\end{tabular}
+		\caption{Possible ways to excite the systen}
+		\label{table:excitationscheme}
+\end{table}
+\subsection{A case 2 application: force perturbations using rope}
+A case 2 application is given in this section, where the system will be exited using a rope with force senor. Here, the rope is mounted on the bicycle below the seat and is being pulled manually by the experimenter. The subject is wearing lateral eye caps to prevent foreseeing the disturbance and thus excluding feedforward control. 
+		The bicycle could be mounted on a tred mill, which would allow for easy perturbation. However, the tredmill could affect the experiment, since the limited road surface and danger of falling of could affect the riding style. Another possibility would be to ride the bicycle along a long straight line and perturb it with the rope by another cyclist riding along. The latter method sounds tricky, so the tredmill experiments are a first choice. Below some expected pros and cons of the rope excitation experiment.
+\begin{itemize}
+		\item Relatively easy applicable.
+		\item Poor control of applied input frequency content.
+		\item One way peturbation, because the rope only allows for pulling.
+		\item Simple but yet promising method according to simulation results.
+\end{itemize}

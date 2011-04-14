@@ -1,0 +1,16 @@
+function e = errorfun(Xn,t,delta,z0,X0)    
+
+X = Xn.*X0;
+
+% ODE simulation
+options = odeset('Events',@eventfun,'AbsTol',1e-2); % stop at y =0
+z = zeros(size(t,1),2);
+[~,z_tmp] = ode45(@(t,z)odefun(t,z,X),t,z0,options);
+
+z(1:length(z),:) = z_tmp;
+% Error defintionrr
+disp(size(delta));
+disp(size(z));
+e = 1/size(t,1)*sum((z(:,1)-delta).^2);
+
+disp([e,X,length(t),length(delta),length(z)]);

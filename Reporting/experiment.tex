@@ -1,0 +1,13 @@
+\section{Experiment design}
+
+\subsection{Sampling frequency}
+Improper choice of the sampling frequency might le
+Choose the sampling frequency to be at least $\omega_s=2\omega_B$ in order to prevent aliasing or even better choose $\omega_s = 10\omega_B$. which correseponds to the general rule of thumb. Here $\omega_B$ represents the system bandwidth,  this is the frequency where the magnitude is 3dB lower than the magnitude at $\omega=0$. There are different methods to estimate the bandwidth. One method would be to measure the rising time of the systems stepresponse. 
+% Transient response; systems response to an impulse. Could be handy to identify rough input/output relations, testing linearity and guessing the order of magnitudes of the time constants. 
+\subsection{Measurement duration}
+The accuracy of the estimated parameters is inversly proportional to the number of samples and thus to the measurement time. This means that the measurements should be as long as possible. Unfortuneatly there is usually no infinite amount of time available to do the experiments, and also conditions may change over time (training effects, temperature changes, etc.). There is however a minimum recommended measurement time. In order to measure the slow characteristics of the system correctly, the minimum measurement time should be at least 10 times the lowest time constant of the sytem.
+\subsection{Multirate samping}
+When the time constants of the system are order of magnitude away, one might choose to estimate using multipple sampling frequencies. At this point there is no intention of using sophisticated multirate techniques, however these methods could be considered when the results are dissatisfying. 
+\subsection{Excitation persistency}
+The input signal should contain enough information in order to succesfully identify the system. The input signal should have enough spectral content at the the bandwidth of interest. Also the magnitude should be high enough to ensure a good signal to noise ratio (SNR). 
+

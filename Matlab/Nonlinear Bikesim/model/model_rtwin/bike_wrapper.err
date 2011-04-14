@@ -1,0 +1,2 @@
+../bike_wrapper.c(85): Warning! W131: No prototype found for function 'odefun_nonlinear'
+../bike_wrapper.c(87): Warning! W138: No newline at end of file

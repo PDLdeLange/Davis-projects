@@ -1,0 +1,32 @@
+\chapter{Bicycle simulator}
+As a simple experiment, a computer bicycle simulator is created. The user control the velocity and steering torque using a controller and receives visual feedback of the 3D bicycle visualisation, roll angle indicator, roll velocity indicator, applied torque indicator and velocity indicator. The work described is purelly experimental and is not yet ready for scientific purposes. 
+\section{Linear simulation}
+First, the linear bicycle equations for the benchmark bicycle are implemented within the bicycle simulator. 
+		\begin{align} 
+		\mathbf{M}\ddot{\mathbf{q}} + v\mathbf{C}_1\dot{\mathbf{q} } + \left[g\mathbf{K}_0 + v^2\mathbf{K}_2\right]\mathbf{q} = \mathbf{f} \ ,
+		\end{align}
+where; $\mathbf{q} = \left[\phi , \ \delta \right]^T$ and $\mathbf{f} = \left[ T_\phi , \ T_\delta \right]^T$. As said the user input consists of: velocity; $v$ [m/s] and steering torque; $T_{\delta}$ [Nm]. The lean action is omitted, but would be interesting to include later on in the simulation.
+\subsection{Results}
+			\begin{itemize}
+			\item Control generally seems to be done intermittently. 
+			\item Dynamic behavior of the bicycle changes as function of the forward velocity; $v$.
+			\item Capsize instability easy to control. 
+			\item At low velocity the weave mode becomes instable and becomes very hard to control.
+			\item Linear equations only valid for small angles.
+			\item Adding visual cue about roll rate makes control below the weave speed a lot easier.
+			\end{itemize}
+\section{Non-linear simulation}
+Next the non-linear equations (provided by Luke) where inserted into the simulator. After overcoming technical diffuculties with the C-compiling of the non-linear equations (error: expressions to complicated), the non-linear equations where easy to implement. The velocity in Luke's equations is defined a little different than the linearized equations. In the non-linear equations the velocity is defined at the frontwheel contact point, while in the linear equations the velocity is defined in the rearwheel contact point. This results in a somewhat overestimated velocity, because the difference traveled by the front wheel contact point is expected to be larger than the rear or CoM contact point. In the next paragraph some interesting results are pointed out.
+\subsection{Results}
+			\begin{itemize}
+			\item A strong coupling between roll angle and velocity exists (maybe caused by wrong velocity definition).
+			\item Unexpected stable weave like oscilations occur below the weave velocity. 
+			\item Controlling unstable weave mode appears to be similar as during the linear equations.
+			\end{itemize}
+\section{Future work}
+The following items would be interesting to implement:
+			\begin{itemize}
+			\item Definition: velocity of the rearwheel contact point.
+			\item Energy tracking to check for energy conservation.
+			\item Add force feedback to include proprioceptive conrol loop.
+			\end{itemize}

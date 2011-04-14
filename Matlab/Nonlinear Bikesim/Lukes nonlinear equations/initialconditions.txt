@@ -1,0 +1,12 @@
+% Initial conditions corresponding to Figure 4 of Meijaard et al. 2007
+q0    =  0.0;                    % rad                 Yaw
+q1    =  0.0;                    % rad                 Roll
+q2    =  0.3141592653589794;     % rad                 Pitch
+q3    =  0.0;                    % rad                 Steer
+q4    =  0.0;                    % rad                 Rear wheel
+q5    =  0.0;                    % rad                 Front wheel
+q6    =  0.0;                    % m                   x rear contact
+q7    =  0.0;                    % m                   y rear contact
+u1    =  0.5;                    % rad/s               Roll rate
+u3    =  0.0;                    % rad/s               Steer rate
+u5    = -13.14285714285714;      % rad/s               Front wheel rate

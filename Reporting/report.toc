@@ -1,0 +1,38 @@
+\contentsline {chapter}{\numberline {1}System Identification in the frequency domain}{3}
+\contentsline {section}{\numberline {1.1}General strategy}{3}
+\contentsline {section}{\numberline {1.2}Input signal design}{3}
+\contentsline {subsection}{\numberline {1.2.1}White noise}{3}
+\contentsline {subsection}{\numberline {1.2.2}Sine sweep}{4}
+\contentsline {subsection}{\numberline {1.2.3}Random phase multisine}{4}
+\contentsline {subsection}{\numberline {1.2.4}Crested multisine}{5}
+\contentsline {subsection}{\numberline {1.2.5}Comparison}{5}
+\contentsline {subsection}{\numberline {1.2.6}Results}{5}
+\contentsline {section}{\numberline {1.3}Frequency averaging}{5}
+\contentsline {section}{\numberline {1.4}SISO identification}{5}
+\contentsline {subsection}{\numberline {1.4.1}Simulation}{7}
+\contentsline {subsection}{\numberline {1.4.2}System identification}{7}
+\contentsline {subsection}{\numberline {1.4.3}Parameter estimation}{9}
+\contentsline {section}{\numberline {1.5}MIMO identification}{9}
+\contentsline {subsection}{\numberline {1.5.1}Simulation}{10}
+\contentsline {subsection}{\numberline {1.5.2}MIMO system identification}{10}
+\contentsline {subsection}{\numberline {1.5.3}MIMO parameter estimation}{11}
+\contentsline {chapter}{\numberline {2}Rider identification}{12}
+\contentsline {section}{\numberline {2.1}ARX model}{12}
+\contentsline {section}{\numberline {2.2}Output Error model}{12}
+\contentsline {subsection}{\numberline {2.2.1}Parametric models}{12}
+\contentsline {subsection}{\numberline {2.2.2}Output error model}{13}
+\contentsline {chapter}{\numberline {3}Bicycle simulator}{14}
+\contentsline {section}{\numberline {3.1}Linear simulation}{14}
+\contentsline {subsection}{\numberline {3.1.1}Results}{14}
+\contentsline {section}{\numberline {3.2}Non-linear simulation}{14}
+\contentsline {subsection}{\numberline {3.2.1}Results}{15}
+\contentsline {section}{\numberline {3.3}Future work}{15}
+\contentsline {section}{\numberline {3.4}Multiple loop rider model}{16}
+\contentsline {subsection}{\numberline {3.4.1}Possible ways to excite the system}{17}
+\contentsline {subsection}{\numberline {3.4.2}Overview of excitation schemes}{17}
+\contentsline {subsection}{\numberline {3.4.3}A case 2 application: force perturbations using rope}{17}
+\contentsline {chapter}{\numberline {4}Eatons Method}{19}
+\contentsline {section}{\numberline {4.1}Eaton}{19}
+\contentsline {subsection}{\numberline {4.1.1}Estimating the pilot function}{19}
+\contentsline {subsection}{\numberline {4.1.2}Conclusion}{20}
+\contentsline {subsection}{\numberline {4.1.3}Pros and Cons}{20}

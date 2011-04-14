@@ -1,0 +1,23 @@
+\chapter{Rider identification}
+Time domain identification using ARX models appears to be a promising way to estimate the rider transferfunction. Dr. Ron Hess is currently experimenting with these models and has already derived some nice results. Also, the choice of input signal is way more flexible then typical frequency domain estimation signals. For example; step inputs, and impulses seem to work really wel. Jason has constructed a rope with force sensor which could be used to apply known perturbations to the bicycle. I'm hoping to find ou more on time domain identification and parameter estimation next week. Another method would be the output error method, which used parameter optimization techniques to fit a parametric model onto the measured output data.
+\section{ARX model}
+Yet to be described. Ask Dr. Hess.
+\section{Output Error model}
+Output Error models offer an simple way to validate the measured output (steering torque in this case). Let's assume that the rider only excerts steering torque and knows the configuration of the bicycle $\mathbf{q}$. The rol angle $\phi_c$ is considered the control objective and no external excitation is present. In this case, the steering torque is expected to be some function of the desired roll angle and configuration of the bicycle:
+		\begin{align}
+		T_\delta = {K}(\mathbf{q},\phi_c)
+		\end{align}
+At this point the function could be of any form, it could be linear/non-linear,  may include differentials/integrals, could be discontinues/continues, include time delays, etc. %A block form representation is given in the figure below.
+%\input{images/block_general}
+\subsection{Parametric models}
+Next the human controller is modelled as a parametric model. This is achieved by assuming a solution of any form, which can be optimized by changing the values of the parameter vector $\boldsymbol{\theta}$. The parameterized model is given by:
+		\begin{align}
+		\hat{T}_\delta = \hat{K}(\boldsymbol{\theta},\mathbf{q},\phi_c)
+		\end{align}
+\subsection{Output error model}
+The output error model is used to compare the measured data with the model simulation data. The model returns the error between the outputs of the two systems. In order to apply this method, one should measure the steering torque and bicycle configuration. The desired roll angle is determined to be zero, which corresponds to balancing the bike in an upright position. The measured configuration $\mathbf{q}$ is then inserted in the parametric model, which outputs steering torque $\hat{T}_\delta$. The error $e(t)$ is defined as the difference between the measured and modelled simulation data. The resulting model is shown in the block diagram (ref?). Finally, the following well known criterium function is set up to determine the quality of the fit:
+    \input{images/block_outputerror}
+		\begin{align}
+		J = \frac{1}{2}\sum_i\left(\tilde{T}_{\delta,i} - \hat{T}_{\delta,i} \right)^2
+		\end{align}
+This criterium can be used to compare different models for the human controllers. A value of zero indicates a perfect fit, whereas higher values of $J$ indicate larger errors. The criterium function can also be used to optimize the model parameter vector.

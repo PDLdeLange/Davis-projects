@@ -1,0 +1,42 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[framed]{mcode}
+\usepackage[round]{natbib}
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing} % for snake lines
+\usetikzlibrary{matrix} % for block alignment
+\usetikzlibrary{arrows} % for arrow heads
+\usetikzlibrary{calc} % for manimulation of coordinates
+\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=endash,width=.75\textwidth]{caption}
+% Default margins are too wide all the way around.  I reset them here
+\setlength{\topmargin}{-.5in} \setlength{\textheight}{9in} \setlength{\oddsidemargin}{.12in} \setlength{\textwidth}{6.35in}
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\title{\bf Davis Report}
+\author{Peter de Lange, 1533363}
+\renewcommand{\today}{February, 2011}
+\maketitle
+\thispagestyle{fancy}
+% Fancy headers
+\pagestyle{fancy}
+\headheight 40pt
+\rhead{\small Peter de Lange, 1533363}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\include{freqID} 
+\include{timeID} 
+\include{simulator} 
+\include{control} 
+\include{other} 
+\include{hess} 
+\include{eaton} 
+\include{steerdynamics} 
+\end{document}
+ 

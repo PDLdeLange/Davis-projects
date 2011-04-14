@@ -1,0 +1,67 @@
+\begin{figure}[ht]
+\centering %
+
+% We need layers to draw the block diagram
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+
+\tikzstyle{block} = [draw,rectangle,thick,minimum height=2em,minimum width=2em]
+\tikzstyle{bigblock} = [draw,rectangle,thick,minimum height=2em,minimum width=3em]
+\tikzstyle{sum} = [draw,circle,inner sep=0mm,minimum size=2mm]
+\tikzstyle{connector} = [->,thick]
+\tikzstyle{line} = [thick]	
+
+\tikzstyle{branch} = [circle,inner sep=0pt,minimum size=1mm,fill=black,draw=black]
+\tikzstyle{guide} = []
+
+\def \myneq {\skew{-2}\not =} % \neq alone skews the dash
+
+\begin{tikzpicture}[scale=1, auto, >=stealth']
+
+    %  Loop function
+    \node[coordinate]												(input) 		{};
+		\node[coordinate,right of=input]		(sumphi)	{};
+		\node[bigblock,right of =sumphi] 	(K) 					{$K$};
+		\node[coordinate,right of=K]				(tmp1)		{};
+			\node[coordinate,right of=tmp1]				(Tdelta)		{};
+
+		\node[coordinate,right of =Tdelta]				(output1) {$T_\delta$};
+		
+		% Feedback paths
+		\node[block,below of = Tdelta]			(H)					{$\mathbf{H}$};
+
+		\node[coordinate,below of=K]			(q)					{};
+		\node[sum,right of=H]									(sume)		{};
+		\node[coordinate,right of=sume]	(OE)				{};
+
+		
+		% Parametric
+		\node[bigblock, below of=q]				(K2)					{$\hat{K}$};
+		\node[coordinate,right of=K2]				(tmp2)		{};
+		\node[coordinate,right of=tmp2]					(Tdelta2)		{};
+		\node[coordinate,right of =Tdelta2]	(output2) 	{$\hat{T}_\delta$};
+
+
+		% Draw connectors
+		\draw[connector] (input) -- node {$\phi_c$} (K);
+		\draw[connector] (sumphi) |- node {} (K2);
+		\draw[line] (K) -- node {$T_\delta$} (output1);
+		\draw[connector] (output1) -- node {} (sume);
+
+		\draw[connector] (Tdelta) -- node {} (H);
+		\draw[line] (H)-- node {$\mathbf{q}$} (q);
+		\draw[connector] (q)-- node {} (K);
+		\draw[connector] (q)-- node {} (K2);
+		\draw[line] (K2) -- node[below]  {$\hat{T}_\delta$} (output2);
+		\draw[connector] (output2) -- node {} (sume);
+		\draw[connector] (sume) -- node {$e$} (OE);
+
+
+    \end{tikzpicture}
+\caption{Output error model for the rider estimation}
+
+\label{fig:outputerror}
+
+\end{figure}

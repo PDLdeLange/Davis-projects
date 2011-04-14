@@ -1,0 +1,9 @@
+\chapter{System Identification in the frequency domain}
+This section describes various system identification procedures in the frequency domain. We'll start with the openloop identification of the bicycle only. This can be of use when validating the bicycle equations. This is done for both the SISO and more general MIMO case. Later on similar techniques will be applied for identifying the human controller. Here we assume the bicycle dynamics to be  a known system and solve for the 'unknown' human controller.
+\section{General strategy}
+The system identification procudures will be tested using simulink models. This offers a both controllable and flexible enviroment where measurement uncertainties are simply modelled using white noise. The systems subject to identification $H$ are actually known at forehand and are used to verify the estimated system $\hat{H}$. The goal of these simulations is to find a usefull identification procudure for the real experiments. 
+\input{inputsignal}
+\section{Frequency averaging}
+Frequency averaging is used to reduce the influence of noise in the frequency domain at the cost of a decreased frequency resolution. There are 2 commonly used methods for frequency averaging; frequency block averaging and averaging over neighbouring frequencies. Yet to be described in more detail. 
+\input{SISO}
+\input{MIMO}
